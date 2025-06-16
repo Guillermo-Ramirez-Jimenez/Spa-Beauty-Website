@@ -16,6 +16,12 @@ a {
     text-decoration: none;
 }
 
+li {
+    a {
+        @include m.highlight;
+    }
+}
+
 body {
     background-image: url('../../img/background.svg');
     background-repeat: no-repeat;
@@ -81,7 +87,6 @@ header {
                     background-color: c.$darkblue;
                     border-radius: 40px;
                     padding: 20px 40px;
-                    @include m.highlight;
                 }
             }
         }
@@ -136,6 +141,7 @@ main {
                     font-size: 18px;
                     font-weight: 400;
                     color: c.$darkblue;
+                    @include m.highlight;
                     &:before {
                         content: '';
                         display: block;
