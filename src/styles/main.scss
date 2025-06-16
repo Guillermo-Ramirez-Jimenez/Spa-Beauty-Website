@@ -1,0 +1,242 @@
+@use '_colors' as c;
+@use '_typography' as t;
+@use '_mixins' as m;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-image: url('../../img/background.svg');
+    background-repeat: no-repeat;
+}
+
+header {
+    padding: 40px 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav-main {
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 56px;
+            a {
+                font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                font-weight: 400;
+                font-size: 18px;
+                color: c.$darkblue;
+            }
+            .dropdown {
+                display: flex;
+                align-items: end;
+                &::after {
+                    content: '';
+                    background-image: url('../../img/down.svg');
+                    background-repeat: no-repeat;
+                    display: block;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+    .nav-side {
+        ul {
+            display: flex;
+            align-items: center;
+            li:nth-of-type(1) {
+                margin-right: 32px;
+            }
+            li:nth-of-type(2) {
+                margin-right: 66px;
+            }
+            li:nth-of-type(3) {
+                margin-right: 32px;
+                a {
+                    font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 40px;
+                    color: c.$darkblue;
+                    text-decoration: underline;
+                }
+            }
+            li:nth-of-type(4) {
+                a {
+                    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                    font-weight: 400;
+                    font-size: 18px;
+                    color: c.$white;
+                    background-color: c.$darkblue;
+                    border-radius: 40px;
+                    padding: 20px 40px;
+                    @include m.highlight;
+                }
+            }
+        }
+    }
+}
+
+main {
+    display: grid;
+    grid-template-columns: 50% 35%;
+    column-gap: 15%;
+    .hero {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 1;
+        padding: 80px 0 90px 160px;
+        h1 {
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 80px;
+            color: c.$darkblue;
+            padding-bottom: 32px;
+        }
+        p {
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 40px;
+            color: c.$gray;
+            padding-bottom: 56px;
+        }
+        &__buttons {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            &-1 {
+                a {
+                    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                    font-weight: 400;
+                    font-size: 18px;
+                    color: c.$white;
+                    background-color: c.$darkblue;
+                    border-radius: 40px;
+                    padding: 20px 40px;
+                    @include m.highlight;
+                }
+            }
+            &-2 {
+                a {
+                    display: flex;
+                    align-items: center;
+                    font-family: 'Poppins';
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: c.$darkblue;
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: 48px;
+                        height: 48px;
+                        background-image: url('../../img/play.svg');
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+                        border-radius: 48px;
+                        margin-right: 16px;
+                    }
+                }
+            }
+        }
+    }
+    .services {
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 1;
+        padding: 32px;
+        margin-left: 160px;
+        margin-bottom: 150px;
+        display: flex;
+        gap: 72px;
+        background-color: c.$white;
+        border-radius: 20px;
+        width: 70%;
+        &__service {
+            text-align: center;
+            width: 145px;
+            img {
+                width: 72px;
+                padding-bottom: 24px;
+            }
+            h2 {
+                font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                font-weight: 500;
+                font-size: 36px;
+                color: c.$darkblue;
+                padding-bottom: 16px;
+            }
+            p {
+                font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                font-weight: 400;
+                font-size: 18px;
+                color: c.$gray;
+            }
+        }
+    }
+    .side {
+        grid-row: 1 / span 2;
+        grid-column: 2 / span 1;
+        position: relative;
+        &__quote {
+            background-color: rgba($color: c.$white, $alpha: 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 24px;
+            position: absolute;
+            width: 60%;
+            &::before {
+                content: '';
+                display: block;
+                width: 32px;
+                height: 21px;
+                background-image: url('../../img/quotes.svg');
+                background-repeat: no-repeat;
+                padding-bottom: 8px;
+            }
+            &__opinion {
+                font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                font-weight: 400;
+                font-size: 18px;
+                color: c.$black;
+                padding-bottom: 8px;
+            }
+            &__author {
+                font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                color: c.$darkblue;
+            }
+            &:nth-of-type(1) {
+                top: 30%;
+                left: 30%;
+            }
+            &:nth-of-type(2) {
+                bottom: 13%;
+                left: 10%;
+            }
+        }
+    }
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-image: url('../../img/hero.png');
+        background-repeat: no-repeat;
+        z-index: -1;
+        background-size: 80%;
+        background-position: right bottom;
+    }
+}
